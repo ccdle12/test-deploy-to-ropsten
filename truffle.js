@@ -1,7 +1,10 @@
-var HDWalletProvider = require("truffle-hdwallet-provider");
+const HDWalletProvider = require("truffle-hdwallet-provider");
 
-var infura_apikey = "NdbfPGaIiAGO2fm3Lp3x";
-var mnemonic = "eyebrow echo noise shift violin deal exit empower cram kiwi notable force";
+const infura_apikey = "NdbfPGaIiAGO2fm3Lp3x";
+const mnemonic = "eyebrow echo noise shift violin deal exit empower cram kiwi notable force";
+
+const Web3 = require("web3");
+const web3 = new Web3();
 
 module.exports = {
   solc: {
@@ -18,9 +21,12 @@ module.exports = {
       gas: 4712388,
     },
     ropsten: {
-      provider: new HDWalletProvider(mnemonic, "https://ropsten.infura.io/"+infura_apikey),
+      provider: function() { 
+        return new HDWalletProvider(mnemonic, "https://ropsten.infura.io/"+infura_apikey) 
+      },
       network_id: 3,
-      gas: 4712388,
+      gas: 4698712,
+      gasPrice: web3.toWei("20", "gwei"),
     }	
   }, 
 };

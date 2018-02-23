@@ -1,8 +1,6 @@
 pragma solidity ^0.4.18;
 
-import './ERC20Interface.sol';
-
-contract UtilCoin is ERC20Interface {
+contract UtilCoin {
     string public constant symbol = "UTL";
     string public constant name = "Utility Coin";
     int public constant decimal = 18;
